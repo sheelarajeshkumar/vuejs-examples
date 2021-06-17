@@ -1,25 +1,33 @@
 <html>
-    <head>
-        <link href="style.css" rel="stylesheet"/>
-       
-    </head>
-    <body>
-        <div id="app">
-            <div>
-                <label for="goal">Goal</label>
-                <input type="text" id="goal" v-model="enterValue" />
-                <button v-on:click="addGoal">Add Goal</button>
-            </div>
-            <ul >
-                <li v-for="goal in goals">
-                    {{goal}}
-                    
-                </li>
-                
-            </ul>
+
+<head>
+    <link href="style.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <label for="goal" v-html="label"></label>
+            <input type="text" id="goal" v-model="enterValue" />
+            <button v-on:click="addGoal">Add Goal</button>
+            <button v-on:click.right="addGoal">Add Goal</button>
+
+            <button @click="addGoal">Add Goal Test</button>
+            <p :style="{color: selected ? 'red' : 'gray'}">{{enterValue}}</p>
+
+            <p :class="selected ? 'active' : 'demo'">{{enterValue}}</p>
+
+            <p class ="demo" :class="{active: selected}">{{enterValue}}</p>
         </div>
-        
-        <script src="https://unpkg.com/vue@next"></script>
-        <script src="app.js"></script>
-    </body>
+        <ul>
+            <li v-for="goal in goals">
+                {{goal}}
+            </li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
+</body>
+
 </html>
